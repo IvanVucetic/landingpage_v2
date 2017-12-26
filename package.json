@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-site-landing-page",
+  "version": "1.1.0",
+  "description": "Attempt to rewrite the landing page of the portfolio website, using Sass and Gulp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanVucetic/landingpage_v2.git"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "junior",
+    "web-dev",
+    "gis"
+  ],
+  "author": "Ivan Vucetic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanVucetic/landingpage_v2/issues"
+  },
+  "homepage": "https://github.com/IvanVucetic/landingpage_v2#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
