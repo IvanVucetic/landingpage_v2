@@ -8,13 +8,13 @@ var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 
 
-// DEVELOPMENT STAGE
+// devELOPMENT STAGE
 
 // compile scss to css
 gulp.task('sass', function() {
-  return gulp.src('Dev/Assets/scss/**/*.scss')
+  return gulp.src('dev/assets/scss/**/*.scss')
     .pipe(sass()) //converts Sass to Css using gulp-sass
-    .pipe(gulp.dest('Dev/Assets/css/'))
+    .pipe(gulp.dest('dev/assets/css/'))
     .pipe(browserSync.reload({ //browser reloas on change
       stream: true
     }))
@@ -24,17 +24,17 @@ gulp.task('sass', function() {
 gulp.task('browserSync', function(){
   browserSync.init({
     server: {
-      baseDir: 'Dev'
+      baseDir: 'dev'
     },
   })
 });
 
 // Watch for changes, compile CSS and reload browser
 gulp.task('watch', ['browserSync', 'sass'], function(){
-  gulp.watch('Dev/Assets/scss/**/*.scss', ['sass']); // watches sass files and runs 'sass' task on save
+  gulp.watch('dev/assets/scss/**/*.scss', ['sass']); // watches sass files and runs 'sass' task on save
   // reloads the browser whenever HTML or JS files change
-  gulp.watch('Dev/*.html', browserSync.reload);
-  gulp.watch('Dev/Assets/js/**/*.js', browserSync.reload)
+  gulp.watch('dev/*.html', browserSync.reload);
+  gulp.watch('dev/assets/js/**/*.js', browserSync.reload)
 });
 
 
@@ -42,11 +42,11 @@ gulp.task('watch', ['browserSync', 'sass'], function(){
 
 // Combine and Minify JS and CSS
 gulp.task('useref', function(){
-  return gulp.src('Dev/*.html')
+  return gulp.src('dev/*.html')
     .pipe(useref())
     // if JS, use uglify
     .pipe(gulpIf('*.js', uglify()))
     // if CSS, use cssnano
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('Production'))
+    .pipe(gulp.dest('production'))
 });
